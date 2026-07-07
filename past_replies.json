@@ -1,0 +1,17 @@
+[
+  {
+    "to": "engineering-leads@company.com",
+    "subject": "Sprint retro timing this week",
+    "body": "Thanks for sharing your availability.\n\nLet's do Thursday at 3pm — that works for everyone I checked with.\n\nA couple of things for the retro doc:\n1. Share your top 3 wins from this sprint before Wednesday\n2. Add any process blockers you want the team to discuss\n\nSee you there.\n\nBest, Diksha"
+  },
+  {
+    "to": "design-team@company.com",
+    "subject": "Feedback on the onboarding flow mockups",
+    "body": "Really like where these are going — the new signup step is much cleaner.\n\nA few thoughts:\n1. The tooltip on step 2 felt a bit intrusive — maybe a lighter inline hint instead?\n2. Let's add a loading skeleton for the dashboard preview — users hate blank flashes\n3. The CTA color change works, but double-check contrast ratios for accessibility\n\nHappy to hop on a quick call if you want to walk through anything.\n\nBest, Diksha"
+  },
+  {
+    "to": "vp-product@company.com",
+    "subject": "Q3 roadmap priorities — quick sync",
+    "body": "Appreciate you sending over the draft — I've reviewed it and overall it's in good shape.\n\nOne area I'd suggest tightening: the discovery phase timeline. Realistically — given current team velocity — we'll need an extra sprint for user testing.\n\nProposed plan:\n1. Lock the top 3 OKRs by end of this week\n2. I'll present the adjusted timeline at Monday's leadership meeting\n3. We socialize with stakeholders before the all-hands\n\nBest, Diksha"
+  }
+]

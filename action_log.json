@@ -1,0 +1,23 @@
+[
+  {
+    "timestamp": "2026-07-06T15:00:13.450627+00:00",
+    "action_type": "sent",
+    "thread_subject": "Update: Hey Diksha, 5 days left to confirm your spot",
+    "detail": "student@mail.internshala.com",
+    "id": "19f37f248395818f"
+  },
+  {
+    "timestamp": "2026-07-06T18:29:19.108989+00:00",
+    "action_type": "sent",
+    "thread_subject": "Anubhav Singhal, 2026 Application Form Closing Deadline Approaching",
+    "detail": "news@connect.sarvgyan.com",
+    "id": "19f38b1b72a11a4e"
+  },
+  {
+    "timestamp": "2026-07-06T18:29:24.547417+00:00",
+    "action_type": "sent",
+    "thread_subject": "Security alert",
+    "detail": "no-reply@accounts.google.com",
+    "id": "19f38b1cc52ba650"
+  }
+]

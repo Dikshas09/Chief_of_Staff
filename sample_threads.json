@@ -1,0 +1,77 @@
+[
+  {
+    "id": "thread-001",
+    "subject": "PRODUCTION ISSUE: Payment gateway down — urgent action required",
+    "messages": [
+      {
+        "from": "Sneha (DevOps)",
+        "date": "2026-06-23 14:10",
+        "body": "Hey everyone, the payment gateway started throwing 503 errors about 20 minutes ago. We're seeing a spike in failed transactions — roughly 40% of attempts are failing. I've rolled back the last deploy but it didn't help. Need someone from product to make a call: do we switch to the fallback provider or wait for the fix? This is blocking revenue."
+      },
+      {
+        "from": "Ravi (Engineering)",
+        "date": "2026-06-23 14:25",
+        "body": "Looking at the logs now. It's not the deploy — it's an upstream timeout from Stripe's side. Our requests are timing out after 5s instead of the usual 300ms. I can increase the timeout threshold as a temp workaround but that'll degrade UX. Full fix might take 2-3 hours."
+      },
+      {
+        "from": "Priya (Support Lead)",
+        "date": "2026-06-23 14:30",
+        "body": "Getting flooded with customer tickets. At least 50+ complaints in the last 15 minutes. People are unable to checkout — some are getting charged but no confirmation. Can we at least put up a banner or disable checkout temporarily?"
+      }
+    ]
+  },
+  {
+    "id": "thread-002",
+    "subject": "Q3 Performance Feedback — need your input by Friday",
+    "messages": [
+      {
+        "from": "Ananya (Manager)",
+        "date": "2026-06-22 11:00",
+        "body": "Hi Diksha, hope you're doing well. As part of our mid-year review cycle, I'm collecting feedback for your Q3 performance assessment. Could you share your thoughts on: 1) Key wins this quarter 2) Areas where you'd like more support 3) Goals for Q4? Please keep it to a paragraph or two. Deadline is EOD Friday. Happy to chat if you want to discuss in person instead."
+      }
+    ]
+  },
+  {
+    "id": "thread-003",
+    "subject": "Weekly Standup Notes — June 23",
+    "messages": [
+      {
+        "from": "Meera (PM)",
+        "date": "2026-06-23 09:00",
+        "body": "Hi team, here are the notes from today's standup:\n\nWhat's done:\n- Analytics dashboard v2 — backend APIs complete (Vikram)\n- Payment flow redesign mockups ready for review (Ananya)\n- User onboarding email sequence drafted (Diksha)\n\nWhat's in progress:\n- Kubernetes migration — 70% done (Sneha)\n- Load testing for peak traffic (Ravi)\n\nBlockers:\n- None currently\n\nNo major decisions needed. Keep up the good work!"
+      }
+    ]
+  },
+  {
+    "id": "thread-004",
+    "subject": "Vendor Contract Renewal — Acme Analytics",
+    "messages": [
+      {
+        "from": "Vikram (Procurement)",
+        "date": "2026-06-20 15:30",
+        "body": "Hi Diksha, quick reminder — the Acme Analytics contract expires on July 15. Their account manager reached out saying they're offering a 12% discount if we renew before July 1. The current terms are: $24K/yr for 500K API calls/month. With the discount it'd be $21,120/yr. Can you confirm if we still need this tool for Q3-Q4? Also, do you want me to negotiate further or is the 12% good enough? Need your input by June 28."
+      },
+      {
+        "from": "Diksha (Product)",
+        "date": "2026-06-21 10:00",
+        "body": "Thanks Vikram. We definitely still need Acme — the analytics team relies on it heavily. 12% is decent but I think we can push for 15% given we've been a customer for 3 years. Let me know if you want me to hop on a call with their AM."
+      }
+    ]
+  },
+  {
+    "id": "thread-005",
+    "subject": "Design Review — New Dashboard Layout (v3.0)",
+    "messages": [
+      {
+        "from": "Ananya (Design Lead)",
+        "date": "2026-06-22 14:00",
+        "body": "Hey Diksha! The v3.0 dashboard mockups are ready for your review. We've redesigned the analytics overview page with a new card-based layout, customizable widgets, and a dark mode toggle. I'd love to get your product perspective before we hand off to engineering. Could you block 30 mins this week? I'm free Thursday 2-4pm or Friday 10am-12pm. Let me know what works!"
+      },
+      {
+        "from": "Diksha (Product)",
+        "date": "2026-06-23 09:30",
+        "body": "Those look great, Ananya! Friday 10am works perfectly. I'll review the mockups beforehand. Can you share the Figma link?"
+      }
+    ]
+  }
+]

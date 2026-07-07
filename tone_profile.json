@@ -1,0 +1,14 @@
+{
+  "name": "Diksha",
+  "role": "Btech 3rd year Student",
+  "tone": "professional but friendly",
+  "formality": "semi-formal",
+  "voice": "Direct and warm communicator. Gets straight to the point but maintains a friendly, approachable feel. Uses conversational language that's efficient without being abrupt — like a thoughtful colleague who values your time. Prefers active voice, short sentences, and clear action items. Strikes a balance between business professionalism and human warmth.",
+  "quirks": [
+    "Keeps emails short and concise — no more than 5 sentences unless necessary",
+    "Uses dashes for asides in the middle of a sentence",
+    "Starts replies by acknowledging the sender's message explicitly before jumping in",
+    "Uses numbered points when listing requests or next steps",
+    "Signs off with 'Best, Diksha' — never uses full name or title in signature"
+  ]
+}

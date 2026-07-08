@@ -19,27 +19,32 @@ TOKEN_FILE = r'C:\Users\diksh\chief_of_staff\token.json'
 def get_gmail_service():
     creds = None
     
-    # 1. If running locally, check for local files first
-    if os.path.exists(TOKEN_FILE):
-        creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
-        
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            # Check if we are on Streamlit Cloud
-            if "client_secret_path" in st.secrets:
-                client_config = json.loads(st.secrets["client_secret_path"])
-                flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
-            else:
-                # Local fallback using your local file
-                flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
-                
-            creds = flow.run_local_server(port=0)
+    # 1. If running on Streamlit Cloud, use Streamlit Secrets ONLY
+    if "client_secret_path" in st.secrets:
+        if "token_json" in st.secrets:
+            token_data = json.loads(st.secrets["token_json"])
+            creds = Credentials.from_authorized_user_info(token_data, SCOPES)
             
-        # Save the token locally so you can copy its content
-        with open(TOKEN_FILE, 'w') as token:
-            token.write(creds.to_json())
+            # If the token is expired but has a refresh token, refresh it
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+        
+        if not creds:
+            st.error("Credentials could not be loaded from secrets. Make sure token_json is set up properly.")
+            return None
+                
+    # 2. Local fallback for your computer (using your local files)
+    else:
+        if os.path.exists(TOKEN_FILE):
+            creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+        if not creds or not creds.valid:
+            if creds and creds.expired and creds.refresh_token:
+                creds.refresh(Request())
+            else:
+                flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+                creds = flow.run_local_server(port=0)
+            with open(TOKEN_FILE, 'w') as token:
+                token.write(creds.to_json())
                 
     return build('gmail', 'v1', credentials=creds)
 

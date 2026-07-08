@@ -19,5 +19,12 @@
     "thread_subject": "Security alert",
     "detail": "no-reply@accounts.google.com",
     "id": "19f38b1cc52ba650"
+  },
+  {
+    "timestamp": "2026-07-08T12:41:18.155116+00:00",
+    "action_type": "sent",
+    "thread_subject": "[GitHub] Sudo email verification code",
+    "detail": "noreply@github.com",
+    "id": "19f41bfd6bf5f504"
   }
 ]

@@ -1,4 +1,3 @@
 python-dotenv
 requests
 openai
-git add requirements.txt

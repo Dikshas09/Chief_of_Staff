@@ -1,29 +1,46 @@
 import os
 import json
+import streamlit as st
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly', 
-        'https://www.googleapis.com/auth/gmail.send',
-        'https://www.googleapis.com/auth/calendar',]
-        
+SCOPES = [
+    'https://www.googleapis.com/auth/gmail.readonly', 
+    'https://www.googleapis.com/auth/gmail.send',
+    'https://www.googleapis.com/auth/calendar',
+]
+
+# MAKE SURE THESE TWO LINES ARE PRESENT:
 CREDENTIALS_FILE = r'C:\Users\diksh\chief_of_staff\servers\client_secret_98708590862-eg0cc2ktd0ojud37j7f2c5kn04mun4ua.apps.googleusercontent.com.json'
 TOKEN_FILE = r'C:\Users\diksh\chief_of_staff\token.json'
 
 def get_gmail_service():
     creds = None
+    
+    # 1. If running locally, check for local files first
     if os.path.exists(TOKEN_FILE):
         creds = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
+        
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+            # Check if we are on Streamlit Cloud
+            if "client_secret_path" in st.secrets:
+                client_config = json.loads(st.secrets["client_secret_path"])
+                flow = InstalledAppFlow.from_client_config(client_config, SCOPES)
+            else:
+                # Local fallback using your local file
+                flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_FILE, SCOPES)
+                
             creds = flow.run_local_server(port=0)
+            
+        # Save the token locally so you can copy its content
         with open(TOKEN_FILE, 'w') as token:
             token.write(creds.to_json())
+                
     return build('gmail', 'v1', credentials=creds)
 
 def get_snippet(body):
